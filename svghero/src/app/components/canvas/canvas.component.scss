@@ -1,0 +1,11 @@
+@import '../../../styles.scss';
+
+.canvasResizeHandle {
+    width: 10px;
+    height: 10px;
+    cursor: se-resize;
+    fill: $accent;
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+}

@@ -1,4 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+$primary: #7b1fa2;
+$secondary: #424242;
+$accent: #69f0ae;
+$warn: #f44336;
+$light: #686868;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: $secondary;
+}

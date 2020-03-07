@@ -1,0 +1,34 @@
+@import "../styles.scss";
+
+.navbar {
+  height: 50px;
+  position: fixed;
+  background-color: $light;
+  top: 0;
+  left: 100px;
+  right: 0;
+  z-index: 2;
+}
+
+.logo {
+    height: 55px;
+    width: 100px;
+    background-color: $light;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.toolbar {
+  width: 100px;
+  position: fixed;
+  bottom: 0;
+  top: 50px;
+  background-color: $light;
+}
+
+.workspace {
+  padding-left: 150px;
+  padding-top: 100px;
+}
