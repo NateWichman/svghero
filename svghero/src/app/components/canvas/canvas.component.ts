@@ -6,6 +6,7 @@ import {
   HostListener
 } from "@angular/core";
 import { CanvasService } from "src/app/services/canvas.service";
+import { Point } from "src/app/model/tools";
 
 @Component({
   selector: "app-canvas",
@@ -16,7 +17,6 @@ export class CanvasComponent implements OnInit {
   @ViewChild("canvasContainer", { read: ElementRef })
   elCanvasContainer: ElementRef;
 
-
   isResizingCanvas = false;
   canvasHeight = 500;
   canvasWidth = 500;
@@ -25,12 +25,38 @@ export class CanvasComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  @HostListener('document:keypress')
+  onKeyDown() {
+    this.canvasService.endPath();
+  }
+
+  startDraw(event) {
+    const point: Point = {
+      x: event.offsetX,
+      y: event.offsetY
+    };
+    if (this.canvasService.isDrawing) {
+      this.canvasService.addPoint(point);
+    } else {
+      this.canvasService.startPath(point);
+    }
+  }
+
+  changePath(event) {
+    if (this.canvasService.isDrawing) {
+      const point: Point = {
+        x: event.offsetX,
+        y: event.offsetY
+      };
+      this.canvasService.changePath(point);
+    }
+  }
+
   /* Resize canvas logic -----------------------------*/
   styleCanvasSize() {
     return {
       height: `${this.canvasHeight}px`,
-      width: `${this.canvasWidth}px`,
-      backgroundColor: '#fff',
+      width: `${this.canvasWidth}px`
     };
   }
 

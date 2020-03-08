@@ -8,6 +8,24 @@
   left: 100px;
   right: 0;
   z-index: 2;
+  display: flex;
+  align-items: center;
+
+  .msg {
+    margin-left: 50px;
+    color: $accent;
+    border: 1px solid $accent;
+    border-radius: 10px;
+    padding: 3px;
+    background-color: $secondary;
+    animation: fadein 1s;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+@keyframes fadein {
+  from { max-width: 0px; }
+  to   { max-width: 300px; }
 }
 
 .logo {
@@ -19,6 +37,7 @@
     left: 0;
     z-index: 100;
 }
+
 
 .toolbar {
   width: 100px;
