@@ -1,5 +1,6 @@
 export enum ToolType {
-  Path = 0
+  Path = 0,
+  Rectangle = 1,
 }
 
 export class Path {

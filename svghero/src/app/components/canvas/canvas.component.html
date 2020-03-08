@@ -1,17 +1,18 @@
-<div #canvasContainer [ngStyle]="styleCanvasSize()" style="position: relative;">
+<div
+  #canvasContainer
+  [ngStyle]="styleCanvasSize()"
+  style="position: relative; margin-bottom: 50px;"
+>
   <svg
+    #canvas
     (mousedown)="startDraw($event)"
     (mousemove)="changePath($event)"
     style="position: relative; background-color: #fff;"
     [ngStyle]="styleCanvasSize()"
     xmlns="http://www.w3.org/2000/svg"
   >
-  <ng-container *ngFor="let path of canvasService.paths">
-    <path
-      [attr.d]="path.getPath()"
-      stroke="black"
-      fill="transparent"
-    />
+    <ng-container *ngFor="let path of canvasService.paths">
+      <path [attr.d]="path.getPath()" stroke="black" fill="transparent" />
     </ng-container>
   </svg>
 

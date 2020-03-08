@@ -10,23 +10,13 @@
   z-index: 2;
   display: flex;
   align-items: center;
+}
 
-  .msg {
-    margin-left: 50px;
-    color: $accent;
-    border: 1px solid $accent;
-    border-radius: 10px;
-    padding: 3px;
-    background-color: $secondary;
-    animation: fadein 1s;
-    white-space: nowrap;
-    overflow: hidden;
-  }
+.download {
+  position: absolute;
+  right: 25px;
 }
-@keyframes fadein {
-  from { max-width: 0px; }
-  to   { max-width: 300px; }
-}
+
 
 .logo {
     height: 55px;
@@ -50,4 +40,8 @@
 .workspace {
   padding-left: 150px;
   padding-top: 100px;
+}
+
+.btn {
+  width: 100%;
 }

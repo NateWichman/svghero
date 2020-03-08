@@ -3,7 +3,8 @@ import {
   OnInit,
   ViewChild,
   ElementRef,
-  HostListener
+  HostListener,
+  AfterViewInit
 } from "@angular/core";
 import { CanvasService } from "src/app/services/canvas.service";
 import { Point } from "src/app/model/tools";
@@ -13,9 +14,12 @@ import { Point } from "src/app/model/tools";
   templateUrl: "./canvas.component.html",
   styleUrls: ["./canvas.component.scss"]
 })
-export class CanvasComponent implements OnInit {
+export class CanvasComponent implements OnInit, AfterViewInit {
   @ViewChild("canvasContainer", { read: ElementRef })
   elCanvasContainer: ElementRef;
+
+  @ViewChild('canvas', { read: ElementRef })
+  elCanvas: ElementRef;
 
   isResizingCanvas = false;
   canvasHeight = 500;
@@ -24,6 +28,10 @@ export class CanvasComponent implements OnInit {
   constructor(public canvasService: CanvasService) {}
 
   ngOnInit(): void {}
+
+  ngAfterViewInit() {
+    this.canvasService.elCanvas = this.elCanvas;
+  }
 
   @HostListener('document:keypress')
   onKeyDown() {

@@ -1,7 +1,7 @@
 @import '../../../styles.scss';
 
 .msg {
-    margin-left: 50px;
+    position: relative;
     color: $accent;
     border: 1px solid $accent;
     border-radius: 10px;

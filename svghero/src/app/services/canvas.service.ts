@@ -1,12 +1,13 @@
-import { Injectable } from "@angular/core";
+import { Injectable, ElementRef } from "@angular/core";
 import { ToolType, Path, Point } from "../model/tools";
 
 @Injectable({
   providedIn: "root"
 })
 export class CanvasService {
+  elCanvas: ElementRef;
   msg: string;
-  toolType: ToolType = ToolType.Path;
+  toolType: ToolType;
   paths: Path[] = [];
   selectedPath: Path;
   isDrawing = false;
@@ -18,7 +19,7 @@ export class CanvasService {
   }
 
   startPath(point: Point) {
-    this.msg = 'hit any key to end drawing';
+    this.msg = 'type any key to end path';
     this.isDrawing = true;
     const path = new Path();
     path.points.push(point);
